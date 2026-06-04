@@ -34,7 +34,7 @@ const contacts = [
   {
     icon: Mail,
     title: "Email",
-    value: "parkourmaniayt@gmail.com",
+    value: "baaghimichael786@gmail.com",
     color: "text-primary",
     bg: "bg-primary/10",
   },
@@ -64,26 +64,33 @@ const contacts = [
 export default function ContactInfo() {
   return (
     <div>
+      {/* Badge */}
       <span
         className="
-          text-sm
+          text-xs
           font-semibold
           uppercase
-          tracking-[0.15em]
+          tracking-[0.2em]
           text-primary
+          sm:text-sm
         "
       >
         Let's Connect
       </span>
 
+      {/* Heading */}
       <h2
         className="
           mt-4
-          text-5xl
+          text-3xl
           font-bold
           leading-tight
           text-white
-          lg:text-7xl
+
+          sm:text-4xl
+          md:text-5xl
+          lg:text-6xl
+          xl:text-7xl
         "
       >
         Let's build something
@@ -94,13 +101,17 @@ export default function ContactInfo() {
         together.
       </h2>
 
+      {/* Description */}
       <p
         className="
-          mt-6
+          mt-5
           max-w-xl
-          text-lg
-          leading-8
+          text-base
+          leading-7
           text-zinc-400
+
+          sm:text-lg
+          sm:leading-8
         "
       >
         I'm always open to discussing new projects,
@@ -108,7 +119,16 @@ export default function ContactInfo() {
       </p>
 
       {/* Features */}
-      <div className="mt-10 grid gap-4 md:grid-cols-3">
+      <div
+        className="
+          mt-8
+          grid
+          gap-4
+
+          sm:grid-cols-2
+          lg:grid-cols-3
+        "
+      >
         {features.map((item) => {
           const Icon = item.icon;
 
@@ -120,19 +140,35 @@ export default function ContactInfo() {
                 border
                 border-white/10
                 bg-white/[0.02]
-                p-5
+                p-4
+                backdrop-blur-xl
+
+                lg:p-5
               "
             >
               <Icon
-                size={24}
+                size={22}
                 className="text-primary"
               />
 
-              <h4 className="mt-4 font-semibold text-white">
+              <h4
+                className="
+                  mt-4
+                  font-semibold
+                  text-white
+                "
+              >
                 {item.title}
               </h4>
 
-              <p className="mt-2 text-sm text-zinc-400">
+              <p
+                className="
+                  mt-2
+                  text-sm
+                  leading-6
+                  text-zinc-400
+                "
+              >
                 {item.description}
               </p>
             </div>
@@ -141,7 +177,7 @@ export default function ContactInfo() {
       </div>
 
       {/* Contact Cards */}
-      <div className="mt-10 space-y-4">
+      <div className="mt-8 space-y-4">
         {contacts.map((item) => {
           const Icon = item.icon;
 
@@ -149,6 +185,7 @@ export default function ContactInfo() {
             <div
               key={item.title}
               className="
+                group
                 flex
                 items-center
                 justify-between
@@ -156,33 +193,65 @@ export default function ContactInfo() {
                 border
                 border-white/10
                 bg-white/[0.02]
-                p-5
+                p-4
+                backdrop-blur-xl
+                transition-all
+                duration-300
+
+                hover:border-primary/30
+                hover:bg-white/[0.03]
+
+                lg:p-5
               "
             >
-              <div className="flex items-center gap-4">
+              <div
+                className="
+                  flex
+                  min-w-0
+                  items-center
+                  gap-4
+                "
+              >
                 <div
                   className={`
                     flex
-                    h-14
-                    w-14
+                    h-12
+                    w-12
+                    shrink-0
                     items-center
                     justify-center
                     rounded-xl
                     ${item.bg}
+
+                    lg:h-14
+                    lg:w-14
                   `}
                 >
                   <Icon
-                    size={24}
+                    size={22}
                     className={item.color}
                   />
                 </div>
 
-                <div>
-                  <h4 className="font-semibold text-white">
+                <div className="min-w-0">
+                  <h4
+                    className="
+                      font-semibold
+                      text-white
+                    "
+                  >
                     {item.title}
                   </h4>
 
-                  <p className="text-zinc-400">
+                  <p
+                    className="
+                      truncate
+                      text-sm
+                      text-zinc-400
+
+                      sm:text-base
+                    "
+                  >
                     {item.value}
                   </p>
                 </div>
@@ -190,7 +259,12 @@ export default function ContactInfo() {
 
               <ChevronRight
                 size={20}
-                className="text-zinc-500"
+                className="
+                  shrink-0
+                  text-zinc-500
+                  transition-transform
+                  group-hover:translate-x-1
+                "
               />
             </div>
           );
