@@ -34,14 +34,14 @@ const contacts = [
   {
     icon: Mail,
     title: "Email",
-    value: "animesh@example.com",
+    value: "parkourmaniayt@gmail.com",
     color: "text-primary",
     bg: "bg-primary/10",
   },
   {
     icon: FaWhatsapp,
     title: "WhatsApp",
-    value: "+91 XXXXX XXXXX",
+    value: "+91 82352 69777",
     color: "text-green-500",
     bg: "bg-green-500/10",
   },
