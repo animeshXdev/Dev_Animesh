@@ -24,7 +24,7 @@ const experiences = [
     title: "Backend Developer",
     period: "2023 - 2024",
     type: "Remote",
-    badge: "1 yr",
+    badge: "1 Yr",
     color: "text-white",
     bg: "bg-white/5",
     description:
@@ -35,7 +35,7 @@ const experiences = [
     title: "Web Developer Intern",
     period: "2022 - 2023",
     type: "On-site",
-    badge: "1 yr",
+    badge: "1 Yr",
     color: "text-green-500",
     bg: "bg-green-500/10",
     description:
@@ -46,7 +46,7 @@ const experiences = [
     title: "Open Source Contributor",
     period: "2021 - Present",
     type: "Remote",
-    badge: "3+ yrs",
+    badge: "3+ Yrs",
     color: "text-orange-400",
     bg: "bg-orange-400/10",
     description:
@@ -58,26 +58,30 @@ export default function ExperienceTimeline() {
   return (
     <div
       className="
-        rounded-[32px]
+        rounded-[24px]
         border
         border-white/10
         bg-white/[0.02]
-        p-6
+        p-4
         backdrop-blur-xl
+        md:p-6
+        lg:rounded-[32px]
       "
     >
       {/* Header */}
       <div className="mb-8 flex items-center gap-3">
         <Briefcase
-          size={26}
+          size={24}
           className="text-primary"
         />
 
         <h3
           className="
-            text-3xl
+            text-xl
             font-bold
             text-white
+            sm:text-2xl
+            lg:text-3xl
           "
         >
           Work Experience
@@ -85,22 +89,23 @@ export default function ExperienceTimeline() {
       </div>
 
       <div className="relative">
-        {/* Timeline Line */}
+        {/* Timeline */}
         <div
           className="
             absolute
-            left-[14px]
-            top-5
-            bottom-5
+            left-[10px]
+            top-4
+            bottom-4
             w-[2px]
             bg-gradient-to-b
             from-primary
             via-primary/50
             to-primary
+            md:left-[14px]
           "
         />
 
-        <div className="space-y-6">
+        <div className="space-y-5 md:space-y-6">
           {experiences.map((item, index) => {
             const Icon = item.icon;
 
@@ -110,7 +115,8 @@ export default function ExperienceTimeline() {
                 className="
                   relative
                   flex
-                  gap-8
+                  gap-4
+                  md:gap-8
                 "
               >
                 {/* Dot */}
@@ -118,14 +124,18 @@ export default function ExperienceTimeline() {
                   className="
                     relative
                     z-10
-                    mt-10
-                    h-7
-                    w-7
+                    mt-7
+                    h-5
+                    w-5
                     rounded-full
-                    border-4
+                    border-2
                     border-black
                     bg-primary
-                    shadow-[0_0_25px_rgba(168,85,247,0.8)]
+                    shadow-[0_0_20px_rgba(168,85,247,0.8)]
+                    md:mt-10
+                    md:h-7
+                    md:w-7
+                    md:border-4
                   "
                 />
 
@@ -133,52 +143,97 @@ export default function ExperienceTimeline() {
                 <div
                   className="
                     flex-1
-                    rounded-[24px]
+                    rounded-2xl
                     border
                     border-white/10
                     bg-black/30
-                    p-6
+                    p-4
+                    md:rounded-[24px]
+                    md:p-6
                   "
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    {/* Left */}
-                    <div className="flex gap-5">
+                  <div
+                    className="
+                      flex
+                      flex-col
+                      gap-4
+                      lg:flex-row
+                      lg:items-start
+                      lg:justify-between
+                    "
+                  >
+                    {/* Content */}
+                    <div
+                      className="
+                        flex
+                        flex-col
+                        gap-4
+                        sm:flex-row
+                      "
+                    >
+                      {/* Icon */}
                       <div
                         className={`
                           flex
-                          h-20
-                          w-20
+                          h-14
+                          w-14
+                          shrink-0
                           items-center
                           justify-center
-                          rounded-2xl
+                          rounded-xl
                           border
                           border-white/10
                           ${item.bg}
+
+                          sm:h-16
+                          sm:w-16
+                          lg:h-20
+                          lg:w-20
+                          lg:rounded-2xl
                         `}
                       >
                         <Icon
-                          size={38}
                           className={item.color}
+                          size={28}
                         />
                       </div>
 
+                      {/* Text */}
                       <div>
                         <h4
                           className="
-                            text-2xl
+                            text-lg
                             font-semibold
                             text-white
+                            sm:text-xl
+                            lg:text-2xl
                           "
                         >
                           {item.title}
                         </h4>
 
-                        <div className="mt-2 flex flex-wrap items-center gap-4">
+                        <div
+                          className="
+                            mt-2
+                            flex
+                            flex-wrap
+                            items-center
+                            gap-3
+                          "
+                        >
                           <span className="font-medium text-primary">
                             {item.period}
                           </span>
 
-                          <span className="flex items-center gap-2 text-zinc-400">
+                          <span
+                            className="
+                              flex
+                              items-center
+                              gap-2
+                              text-sm
+                              text-zinc-400
+                            "
+                          >
                             <span className="h-2 w-2 rounded-full bg-green-500" />
                             {item.type}
                           </span>
@@ -187,9 +242,10 @@ export default function ExperienceTimeline() {
                         <p
                           className="
                             mt-4
-                            max-w-2xl
-                            leading-8
+                            text-sm
+                            leading-7
                             text-zinc-400
+                            md:text-base
                           "
                         >
                           {item.description}
@@ -200,16 +256,20 @@ export default function ExperienceTimeline() {
                     {/* Badge */}
                     <div
                       className="
+                        w-fit
                         rounded-xl
                         border
                         border-primary/20
                         bg-primary/10
-                        px-4
+                        px-3
                         py-2
-                        text-sm
+                        text-xs
                         font-medium
-                        text-white
                         whitespace-nowrap
+                        text-white
+
+                        md:px-4
+                        md:text-sm
                       "
                     >
                       {item.badge}
