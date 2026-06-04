@@ -3,7 +3,6 @@
 import ContactInfo from "./contact-info";
 import ContactForm from "./contact-form";
 
-
 export default function ContactSection() {
   return (
     <section
@@ -11,7 +10,9 @@ export default function ContactSection() {
       className="
         relative
         overflow-hidden
-        py-24
+        py-16
+        sm:py-20
+        lg:py-24
       "
     >
       {/* Background Glow */}
@@ -20,42 +21,67 @@ export default function ContactSection() {
           absolute
           left-1/2
           top-1/2
-          h-[700px]
-          w-[700px]
+          h-[300px]
+          w-[300px]
           -translate-x-1/2
           -translate-y-1/2
           rounded-full
           bg-primary/10
-          blur-[180px]
+          blur-[100px]
+
+          sm:h-[500px]
+          sm:w-[500px]
+          sm:blur-[140px]
+
+          lg:h-[700px]
+          lg:w-[700px]
+          lg:blur-[180px]
         "
       />
 
-      <div className="mx-auto max-w-7xl px-6">
+      <div
+        className="
+          relative
+          mx-auto
+          max-w-7xl
+          px-4
+
+          sm:px-6
+          lg:px-8
+        "
+      >
         <div
           className="
-            rounded-[36px]
+            rounded-[24px]
             border
             border-white/10
             bg-black/30
-            p-6
+            p-4
             backdrop-blur-xl
+
+            sm:p-6
             lg:p-10
+            lg:rounded-[36px]
           "
         >
           <div
             className="
               grid
-              gap-10
-              xl:grid-cols-[520px_1fr]
+              gap-8
+
+              lg:gap-10
+              xl:grid-cols-[480px_1fr]
             "
           >
             {/* Left Side */}
-            <div>
+            <div className="min-w-0">
               <ContactInfo />
             </div>
 
             {/* Right Side */}
-            <ContactForm />
+            <div className="min-w-0">
+              <ContactForm />
+            </div>
           </div>
         </div>
       </div>
